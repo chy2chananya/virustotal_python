@@ -15,6 +15,8 @@ def get_ip_analysis():
 
     # Send request to Virustotal
     response = requests.get(url + "%s" % ip_addr, headers=headers).json()
+    
+    # Manage and collect information.
     total_analyses = sum(response['data']['attributes']['last_analysis_stats'].values())
     analysis_stat = response['data']['attributes']['last_analysis_stats']
 
